@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    /* default overwrite  */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Ubuntu", sans-serif;
+      transition: all 0.4s;
+      text-decoration: none;
+    }
+
+    /* light theme colors  */
+    :root {
+      --primary: #3a86ff;
+      --secondary: #8338ec;
+      --body-bg-color: #f8f9fa;
+      --card-color: #fff;
+      --text-color-light: #f1f1f1;
+      --text-color-dark: #000;
+      --light-hover: #e9ecef;
+      --card-shadow: rgba(149, 157, 165, 0.2);
+      --img-shadow: rgb(99 99 99 / 40%);
+      --input-bg-color: #dddbdb78;
+      /* utilitis */
+      --border-radius: 6px;
+      --pading-nm: 1rem;
+      --pading-lg: 2rem;
+    }
+
+    /* color variables 
+primary - highlight and h1 btn  ; 
+secondary - btn hover ;
+body background only for background  ;
+card background
+text color light - white ;
+text color dark - black ;
+box shadow for card ;
+
+*/
+    /* dark theme colors  */
+    .dark-mode {
+      --body-bg-color: #202427;
+      --card-color: #212529;
+      --dark-hover: #495057;
+      --text-color-light: #000;
+      --text-color-dark: #f1f1f1;
+      --primary: #0099e6;
+      --card-shadow: rgba(149, 157, 165, 0.2);
+      --input-bg-color: #5c5c5c78;
+    }
+
+    /* styling for all */
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--text-color-dark);
+      text-transform: capitalize;
+    }
+
+    p {
+      color: var(--text-color-dark);
+      line-height: 1.5rem;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    a,
+    .fas,
+    .fab {
+      color: var(--text-color-dark);
+    }
+
+    ::-webkit-input-placeholder {
+      /* Edge */
+      color: var(--text-color-dark);
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: var(--text-color-dark);
+    }
+
+    ::placeholder {
+      color: var(--text-color-dark);
+    }
+
+    .scale:focus,
+    .scale:hover {
+      transform: scale(1.2);
+    }
+
+    input:hover,
+    input:focus,
+    textarea:hover,
+    textarea:focus {
+      outline: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--body-bg-color);
+      overflow-x: hidden;
+    }
+
+    /* custom scrollbar  */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      border-radius: 50px;
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 50px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* swiper css  */
+    .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 18rem;
+      height: 20rem;
+      padding: 0;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+    /* my css  */
+    .testimonial-box.card {
+      height: 100%;
+      width: 100%;
+      background: #fff;
+      justify-content: center;
+      padding: 1rem;
+      box-shadow: 0px 8px 24px #aaaaaab8;
+      border-radius: 0.5rem;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      /* gap: 1rem; */
+      justify-content: space-between;
+      position: relative;
+    }
+
+
+    .testimonial-title {
+      text-align: center;
+    }
+
+    img.client-img {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid;
+
+    }
+
+    .client-details {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .client-name {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary);
+
+    }
+
+    .client-post {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: var(--text-color-dark);
+
+    }
+
+    .swiper-3d .swiper-slide-shadow-left,
+    .swiper-3d .swiper-slide-shadow-right {
+      background-image: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="testimonial-box card">
+          <h2 class="testimonial-title">Awesome</h2>
+          <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+            necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+          <div class="client-details">
+            <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+            <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-box card">
+          <h2 class="testimonial-title">Awesome</h2>
+          <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+            necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+          <div class="client-details">
+            <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+            <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial-box card">
+          <h2 class="testimonial-title">Awesome</h2>
+          <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+            necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+          <div class="client-details">
+            <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+            <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 5,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+        pagination: {
+          el: '.swiper-navigation',
+        }
+        // loop: true,
+      });
+    </script>
+</body>
+
+</html>

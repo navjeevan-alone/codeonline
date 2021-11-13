@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz app using template</title>
+    <!-- <style>
+        /* default overwrite */
+        *,
+        * ::before,
+        * ::after {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif, "poppins";
+            list-style: none;
+            text-decoration: none;
+            color: var(--white);
+            outline: none;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: var(--gray);
+            padding: .5rem 10px;
+        }
+
+        :root {
+            /* 17 colors defined */
+            --default: rgb(212, 212, 212);
+            --white: #fff;
+            --black: #343a40;
+            --blue: #007bff;
+            --red: #f04235;
+            --green: #28a745;
+            --yellow: #ffc107;
+            --orange: #fd7e14;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --teal: #20c997;
+            --cyan: #17a2b8;
+            --gray: #6c757d;
+            --graydark: #343a40;
+            --skyblue: #57e6fc;
+            --light: #f8f9fa;
+            --lightgray: #F1F1F1;
+            --padding: .5rem;
+            --disabled: #a0a6ab;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            background-color: var(--default);
+            color: var(--white);
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+        }
+
+        .btn:hover {
+            filter: grayscale(25%);
+        }
+
+        .btn:disabled {
+            background: var(--disabled);
+        }
+
+        /* container paragraph and start page  */
+        p,
+        .text {
+            line-height: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            position: relative;
+            padding: .5rem;
+            width: 92vw;
+            min-height: 250px;
+            max-height: 90vh;
+            height: auto;
+            overflow-x: hidden;
+            /* overflow-y: scroll; */
+            gap: 1rem;
+            border-radius: 5px;
+            background: var(--graydark);
+            color: #fff;
+        }
+
+        .flexbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem 0;
+
+        }
+
+        .start-quiz {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* quiz rules page  */
+        .quiz-rules {
+            margin: 1rem 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .quiz-rules ul {
+            overflow: auto;
+            background: var(--black);
+            border-radius: 5px;
+            padding: .3rem;
+            width: 95%;
+            min-height: 300px;
+            max-height: 90vh;
+            border: 1px solid white;
+        }
+
+        .quiz-rules ul li {
+            overflow: auto;
+            text-align: left;
+            position: relative;
+            padding-left: 1rem;
+            margin: 5px 0;
+
+        }
+
+        .quiz-rules ul li::before {
+            content: "";
+            height: 8px;
+            width: 8px;
+            position: absolute;
+            background: var(--orange);
+            border-radius: 50%;
+            left: 5px;
+            left: 0;
+            top: .7rem;
+            transform: translateY(-50%);
+        }
+
+        /* quiz result page */
+        .quiz-result {
+            margin: 2rem 0;
+            gap: 0.5rem 0;
+        }
+
+        /* quiz format page  */
+        .quiz-format {
+            width: 100%;
+            width: auto;
+        }
+
+        .quiz-format .question,
+        .quiz-format .currentQues {
+            text-align: left;
+            margin: .8rem;
+        }
+
+        .quiz-format .currentQues {
+            border-bottom: 1px solid var(--orange);
+        }
+
+        .quiz-format ul {
+            width: 100%;
+            margin: .8rem 0;
+            justify-content: center;
+            gap: .2rem;
+        }
+
+        .quiz-format ul li {
+            --padding: .5rem;
+            display: grid;
+            grid-template-columns: 1fr 9fr;
+            align-items: center;
+            padding: var(--padding) 0;
+            width: calc(100% - var(--padding)*4);
+            border: 1px solid var(--default);
+            border-radius: 5px;
+        }
+
+        .quiz-format ul li label {
+            justify-self: left;
+            text-align: left;
+            /* font-weight: 400; */
+            font-size: 1.2rem;
+
+        }
+
+        .quiz-format ul li input[type="radio"] {
+            justify-self: center;
+        }
+
+        .quiz-format .btn-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(var(--padding)*2);
+        }
+
+        /* utilities */
+        .bg-orange {
+            background-color: var(--orange);
+        }
+
+        .bg-blue {
+            background-color: var(--blue);
+        }
+
+        .bg-green {
+            background-color: var(--green);
+        }
+
+        .te-center {
+            text-align: center;
+        }
+
+        /* On screens that are 992px or less,  */
+        @media screen and (max-width: 992px) {
+            html {
+                font-size: 70%;
+            }
+
+        }
+
+        /* On screens that are 600px or less*/
+        @media screen and (max-width: 600px) {
+            html {
+                font-size: 60%;
+            }
+        }
+    </style> -->
+    <link rel="stylesheet" href="quizindex.css">
+</head>
+
+<body>
+    <template id="temp1">
+        <div class="flexbox start-quiz">
+            <h2>Welcome to My HTML Quiz App</h2>
+            <p> Created With Pure Javascript</p>
+            <button class="btn bg-orange" id="start" onclick="start()">Start Quiz</button>
+        </div>
+    </template>
+    <template id="temp2">
+        <div class="quiz-rules flexbox">
+            <h2>Quiz rules</h2>
+            <ul>
+                <li class="text">Rule 1 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nemo.</li>
+                <li class="text">Rule 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nemo.</li>
+                <li class="text">Rule 3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nemo.</li>
+                <li class="text">Rule 4 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nemo.</li>
+                <li class="text">Rule 5 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nemo.</li>
+            </ul>
+            <button class="btn bg-orange" id="proceed" onclick="proceed()">Procced</button>
+
+        </div>
+
+    </template>
+    <template id="temp3">
+        <div class="quiz-format">
+            <div class="currentQues text">3 of 5</div>
+            <h3 class="question">Question goes here. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae, ducimus!</h3>
+            <ul class="flexbox opt-list">
+                <li class="opt-group">
+                    <input type="radio" name="option" id="optA" class="opt">
+                    <label class="text optA" for="optA">Option 1 </label>
+                </li>
+                <li class="opt-group">
+                    <input type="radio" name="option" id="optB" class="opt">
+                    <label class="text optB" for="optB">Option 2</label>
+                </li>
+                <li class="opt-group">
+                    <input type="radio" name="option" id="optC" class="opt">
+                    <label class="text optC" for="optC">Option 3</label>
+                </li>
+                <li class="opt-group">
+                    <input type="radio" name="option" id="optD" class="opt">
+                    <label class="text optD" for="optD">Option 4</label>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn bg-blue" id="prev" onclick="prevQues()">Prev</button>
+                <button class="btn bg-green" id="submit" onclick="showResult()">Submit</button>
+                <button class="btn bg-blue" id="next" onclick="nextQues()">Next</button>
+            </div>
+        </div>
+    </template>
+    <template id="temp4">
+        <div class="flexbox quiz-result">
+            <h2>Great!</h2>
+            <p>Your Score</p>
+            <h1 class="scoreResult">4 of 5</h1>
+            <button class="btn bg-orange" id="restart" onclick="restartQuiz()">Replay Quiz</button>
+        </div>
+    </template>
+    <!-- first display following  -->
+    <div class="container">
+        <div class="flexbox start-quiz">
+            <h2>Welcome to My HTML Quiz App</h2>
+            <p> Created With Pure Javascript</p>
+            <button class="btn bg-orange" id="start" onclick="start()">Start Quiz</button>
+        </div>
+    </div>
+    <script src="quizindex.js"></script>
+    <!-- <script>
+
+        // page 3 code display questions dynamically
+        let container = document.querySelector(".container");
+
+        let quizDB = [
+            {
+                ques: "What does HTML stand for?",
+                a: "Hyper Text Markup Launguage",
+                b: "Hper Tool Makeup Launguage",
+                c: "Hello Text Markup Lang",
+                d: "None of these",
+                answer: "optA"
+            },
+            {
+                ques: "Who is making the Web standards?",
+                a: "Chrome",
+                b: "Firefox",
+                c: "Opera",
+                d: "w3 corporation",
+                answer: "optD"
+            },
+            {
+                ques: "Choose the correct HTML element for the largest heading:",
+                a: " &lt;h2&gt;",
+                b: "&lt;h3&gt;",
+                c: "&lt;h1&gt;",
+                d: "&lt;h6&gt;",
+                answer: "optC"
+            },
+            {
+                ques: "What is the correct HTML element for inserting a line break?",
+                a: "&lt;h2/&gt;",
+                b: "&lt;br/&gt;",
+                c: "&lt;span/&gt;",
+                d: "&lt;h2/&gt;",
+                answer: "optB"
+            }
+
+        ];
+        let score = 0;
+        let totalQues = quizDB.length;
+        // let container = document.querySelector(".container");
+        let i = 0;
+
+
+        function loadQues()
+        {
+            let container = document.querySelector(".container")
+            let currentQues = document.querySelector(".currentQues")
+            container.querySelector(".currentQues").innerHTML = `${i} of ${totalQues}`;
+            container.querySelector(".question").innerHTML = quizDB[i].ques;
+            container.querySelector(".optA").innerHTML = quizDB[i].a;
+            container.querySelector(".optB").innerHTML = quizDB[i].b;
+            container.querySelector(".optC").innerHTML = quizDB[i].c;
+            container.querySelector(".optD").innerHTML = quizDB[i].d;
+
+        }
+
+        function nextQues()
+        {
+            if (i < quizDB.length) {
+                i++;
+                loadQues();
+            }
+            else {
+                document.querySelector("#next").disabled = true;
+            }
+        }
+        function prevQues()
+        {
+            if (i > 0) {
+                i--;
+                loadQues();
+            }
+            else {
+                document.querySelector("#prev").disabled = true;
+            }
+
+        }
+        // page 1 to page 2 navigation 
+        function start()
+        {
+            let container = document.querySelector(".container");
+            let temp2 = document.querySelector("#temp2").content.cloneNode(true);
+            alert("You are moving forward");
+            container.innerHTML = "";
+            container.appendChild(temp2);
+        }
+        //page 2 to page 3 navigation 
+        function proceed()
+        {
+            let container = document.querySelector(".container");
+            let confirmQuiz = confirm("Are you Ready to Begin ?");
+            if (confirmQuiz == true) {
+                confirmProceed();
+            } else {
+                container.innerHTML = `<h1>If you want to give exam reload page </h1>`;
+            }
+        }
+
+        function confirmProceed()
+        {
+            let container = document.querySelector(".container");
+            let temp3 = document.querySelector("#temp3").content.cloneNode(true);
+            container.innerHTML = "";
+            container.appendChild(temp3);
+            loadQues();
+        }
+
+
+        //page 4 last page show result
+        function showResult()
+        {
+            let confirmSubmit = confirm("Are You Sure to Submit?");
+            let container = document.querySelector(".container");
+            let temp4 = document.querySelector("#temp4").content.cloneNode(true);
+            let scoreResult = document.querySelector(".scoreResult");
+            // let temp1 = document.querySelector("#temp1").content.cloneNode(true);
+
+            if (confirmSubmit == true) {
+                container.innerHTML = "";
+                container.appendChild(temp4);
+                scoreResult.innerHTML = `${score} of ${totalQues}`;
+            }
+
+        }
+        function restartQuiz()
+        {
+            let container = document.querySelector(".container");
+            let temp1 = document.querySelector("#temp1").content.cloneNode(true);
+            container.innerHTML = "";
+            container.appendChild(temp1);
+        }
+
+
+    </script> -->
+</body>
+
+</html>

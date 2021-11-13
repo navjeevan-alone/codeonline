@@ -1,0 +1,157 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --primary: hsl(217, 100%, 61%);
+  --secondary: hsl(41deg 100% 63%);
+  --red: hsl(350, 100%, 50%);
+  --blue: hsl(217, 100%, 61%);
+  --orange: hsl(23, 97%, 57%);
+  --green: hsl(106, 100%, 32%);
+  --dark: hsl(210, 11%, 15%);
+  --dark-2: hsl(210, 10%, 23%);
+  --light: hsl(210, 17%, 98%);
+  --light-2: hsl(210, 16%, 93%);
+  --gray: hsl(0, 0%, 50%);
+  --gradient: linear-gradient(225deg, hsl(42, 100%, 47%), #fd3358 49%, #bc35d8);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 10px;
+  background: red;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark);
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: red;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.hover-line::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  background: var(--light);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.hover-line:hover::after {
+  width: 30%;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+header.hero {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 3rem;
+  background-image: var(--gradient);
+  overflow: hidden;
+}
+
+header.hero .text-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem 0;
+}
+
+header.hero .text-group h1,
+header.hero .text-group h2,
+header.hero .text-group h3,
+header.hero .text-group p {
+  color: var(--light);
+}
+
+header.hero .my-btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6rem;
+}
+
+header.hero .my-btn-group .btn.btn-dark:hover {
+  outline: 1px solid var(--light);
+  border: transparent;
+  background: transparent;
+  color: var(--light);
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    background: #000;
+  }
+  .justify-content-end {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.services-list li {
+  background: var(--bs-gray-600);
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+}
+
+.services-list li a {
+  color: var(--light);
+  text-decoration: none;
+}
+/*# sourceMappingURL=style.css.map */

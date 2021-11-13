@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>website pre loader</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      :root {
+        --greydark: #343a40;
+        --orange: #fd7e14;
+      }
+
+      .preloader-box {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--greydark);
+        z-index: 1000;
+      }
+
+      .preloader-box .preloader {
+        z-index: 1002;
+        height: 3rem;
+        width: auto;
+        background: red;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="preloader-box">
+      <img class="preloader" src="img/loader.gif" alt="loading..." />
+    </div>
+    <h1>hi i am a website with pre loader</h1>
+    <p>website loaded succesfully</p>
+    <script>
+      const loader = document.querySelector(".preloader-box");
+      function openLoader() {
+        loader.style.display = "none";
+      }
+      function closeLoader() {
+        setTimeout(openLoader, 2000);
+      }
+      window.onload = closeLoader();
+    </script>
+  </body>
+</html>

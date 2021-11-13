@@ -1,0 +1,139 @@
+/* default overwrite  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  transition: all 0.4s;
+  text-decoration: none;
+}
+:root {
+  --primary: #3a86ff;
+  --secondary: #8338ec;
+  /* light theme colors  */
+  --body-bg-color: #f8f9fa;
+  --card-color: #ffffff;
+  --text-color-light: #ffffff;
+  --light-hover: #e9ecef;
+  /* utilitis */
+  --border-radius: 6px;
+  --pading-nm: 1rem;
+  --pading-lg: 2rem;
+}
+
+/* styling for all */
+h2,
+h3 {
+  text-transform: capitalize;
+}
+p {
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+.scale:focus,
+.scale:hover {
+  transform: scale(1.2);
+}
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--body-bg-color);
+  overflow-x: hidden;
+}
+/* nav bar */
+nav {
+  background: var(--primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--pading-nm);
+  position: relative;
+}
+nav .heading {
+  color: var(--text-color-light);
+}
+.links {
+  display: flex;
+  gap: 0 1.5rem;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.links a,
+a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  transition: 0.2s;
+  padding: 0.2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.links a {
+  color: var(--text-color-light);
+}
+
+.links a::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  background: #fff;
+  height: 3px;
+  bottom: -0.7rem;
+  left: 0;
+  opacity: 0;
+  transition: all 0.2s;
+  border-radius: 10px;
+}
+.links a:hover::after,
+.target-links a:hover:after {
+  opacity: 1;
+  bottom: -0.3rem;
+}
+label.fas.fa-bars {
+  color: #fff;
+  padding: 0.3rem 0.4rem;
+  border-radius: 3px;
+  cursor: pointer;
+  /* hide toggleBtn by default */
+  display: none;
+}
+/* hide checkbox  */
+input#toggleNav {
+  display: none;
+}
+/* media queries  */
+@media screen and (max-width: 800px) {
+  label.fas.fa-bars {
+    display: block;
+  }
+  .links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    background: var(--primary);
+    top: -500%;
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2rem;
+    left: 0;
+  }
+
+  input#toggleNav:checked + label.fas.fa-bars + .links {
+    top: 100%;
+  }
+}

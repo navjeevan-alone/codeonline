@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portpholio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css " />
+</head>
+<style>
+  .preloader-box {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--text-color-light);
+    z-index: 1000;
+  }
+
+  .preloader-box .preloader {
+    z-index: 1002;
+    height: 15rem;
+    width: auto;
+  }
+
+  .loading-icon {
+    animation: rotate 0.5s linear infinite;
+    color: var(--text-color-dark);
+    font-size: 5rem;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<body>
+  <div class="preloader-box">
+    <!-- <i class="fas fa-circle-notch loading-icon"></i> -->
+    <img class="loading-icon" src="loader.svg" alt="loading...">
+  </div>
+  <script>
+    const loader = document.querySelector(".preloader-box");
+    function openLoader()
+    {
+      loader.style.display = "none";
+    }
+    function closeLoader()
+    {
+      setTimeout(openLoader, 2000);
+    }
+    window.onload = closeLoader();
+  </script>
+
+  <nav>
+    <h4 class="heading">Shri Developers</h4>
+    <input type="checkbox" id="toggleNav" />
+    <label for="toggleNav" class="fas fa-bars"></label>
+    <div class="links">
+      <a href="#home"><i class="fas fa-home"></i>Home</a>
+      <a href="#blog"><i class="fab fa-blogger-b"></i>Blog</a>
+      <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+      <a href="#about"><i class="fas fa-address-card"></i>About</a>
+      <div class="fas fa-sun" id="theme-changer"></div>
+    </div>
+    <!-- <div class="fas fa-moon"></div> -->
+  </nav>
+  <section class="hero-section card" id="home">
+    <img src="img\profileimgself.jpg" alt="" class="profile-img" />
+
+    <div class="profile-info">
+      <h1 class="name">Navjeevan Alone <span>Web Developer - 2019</span></h1>
+
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+        nihil?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
+        nesciunt expedita totam eveniet animi dicta! Nobis voluptate doloribus
+        qui. Possimus ad culpa accusantium velit, cumque iusto veniam beatae
+        distinctio officia?
+      </p>
+      <button class="ripple-btn btn view">View Blog</button>
+    </div>
+  </section>
+  <section id="skills" class="card">
+    <h2>My top skills</h2>
+    <div class="coding-lang">
+      <span class="scale skills-icon"><i class="fab fa-html5"></i><span class="skills-name">HTML</span></span>
+      <span class="scale skills-icon"><i class="fab fa-css3-alt"></i><span class="skills-name">CSS</span></span>
+      <span class="scale skills-icon"><i class="fab fa-node-js"></i><span class="skills-name">NodeJs</span></span>
+      <span class="scale skills-icon"><i class="fab fa-js"></i><span class="skills-name">Js</span></span>
+      <span class="scale skills-icon"><i class="fab fa-bootstrap"></i><span class="skills-name">Bootstrap</span></span>
+    </div>
+  </section>
+  <section id="testimonials" class="card">
+    <h2>What people say !</h2>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-box card">
+            <h2 class="testimonial-title">Awesome</h2>
+            <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+              necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+            <div class="client-details">
+              <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+              <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-box card">
+            <h2 class="testimonial-title">Awesome</h2>
+            <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+              necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+            <div class="client-details">
+              <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+              <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-box card">
+            <h2 class="testimonial-title">Awesome</h2>
+            <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed consequuntur
+              necessitatibus, provident in quam porro labore commodi modi obcaecati.</p>
+            <div class="client-details">
+              <img src="img/profileimgself.jpg" alt="jhon deo" class="client-img">
+              <span class="client-name">Jhon Doe <br><span class="client-post">web developer</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+  </section>
+  <section id="contact" class="card">
+    <h2>Contact Us</h2>
+    <form class="contact" action="#">
+      <input type="text" id="name" placeholder="Name"
+        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+        required />
+
+      <input type="email" id="email" placeholder="Email " required />
+      <textarea name="message" id="message" cols="30" rows="5" placeholder="I have something to say ...."
+        required></textarea>
+      <input type="submit" value="Send" id="send-btn" class="ripple-btn btn send" />
+    </form>
+  </section>
+
+  <section id="about" class="card">
+    <h2>View our Projects</h2>
+    <div class="social-links">
+      <a href="https://codepen.io/navjeevan-alone" class="scale fab fa-codepen" target="_blank"></a>
+      <a href="https://github.com/navjeevan-alone" class="scale fab fa-github" target="_blank"></a>
+      <a href="#" class="scale fab fa-blogger-b"></a>
+      <a href="https://twitter.com/AloneNavjeevan" class="scale fab fa-twitter" target="_blank"></a>
+    </div>
+    <h3>Go to</h3>
+    <div class="target-links">
+      <a href="#home">Home</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>
+      Made with <i class="fas fa-laugh"></i> & <i class="fas fa-heart"></i>
+    </p>
+    <p>&copy; All rights reserved. Created & Maintained by Navjeevan Alone</p>
+  </section>
+  <a href="#" class="fas fa-chevron-up" id="scroll-top-btn"></a>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- my own js  -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
